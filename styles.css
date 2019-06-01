@@ -1,0 +1,93 @@
+
+/*global atributes*/
+*{ font-style: Helvetica; 
+
+/*line-height: 25pt;*/
+
+ }
+
+ /*the heading box*/
+.box-head{
+
+line-height: 34pt;
+background-color: #333;
+color: #fff;
+border:5px red solid;
+border-width: 3px;
+padding-top: 14px;
+padding: 25px;
+margin: 10px;
+
+}
+
+
+/*the first box*/
+.box-1{
+background-color: #333;
+color: #fff;
+border:5px red solid;
+border-width: 3px;
+padding-top: 15px;
+padding: 25px;
+margin: 5px;
+
+}
+
+/*the image*/
+
+.Image1{
+
+  float: left;
+  padding-top: 30px;
+/*display: block;
+ margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+
+margin-left: 55% */
+
+}
+
+/*the second box*/
+.box-2{
+
+background-color: #333;
+color: #fff;
+border:5px red solid;
+border-width: 3px;
+padding-top: 15px;
+padding: 25px;
+margin: 10px;
+
+}
+
+
+/*the third box*/
+.box-3{
+
+background-color: #333;
+color: #fff;
+border:5px red solid;
+border-width: 3px;
+padding-top: 15px;
+padding: 25px;
+margin: 10px;
+
+
+
+}
+
+
+.text1{
+
+padding-left: 320px;
+
+
+
+}
+
+
+
+
+
+
