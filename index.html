@@ -1,1 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See ya space cowboy</title>
+    <style>
+        body {
+    margin: 0;
+    overflow-y: auto; /* Enables vertical scrolling */
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
 
+
+      #vectorField {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+        .content {
+            position: relative;
+            text-align: center;
+            padding: 50px;
+            z-index: 1;
+        }
+
+        .content img {
+            max-width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .content h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .publications, .talks, .favorite-books, .footprints, .notes {
+            margin-top: 20px;
+        }
+
+        .favorite-books-list, .footprints-gallery, .notes-list {
+            display: none;
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .favorite-books-list li, .footprints-gallery li, .notes-list li {
+            margin: 5px 0;
+        }
+
+        .trajectory-content {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        .trajectory-content li {
+            margin: 5px 0;
+        }
+
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        table td {
+            padding: 10px;
+        }
+
+        table a {
+            font-size: 18px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        table a:hover {
+            text-decoration: underline;
+        }
+
+        .btc-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btc-section img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+
+        .btc-section p {
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><a href="https://github.com/owenhowell20" target="_blank">GitHub</a></td>
+            <td><a href="https://scholar.google.com/citations?user=nPrWyREAAAAJ&hl=en" target="_blank">Google Scholar</a></td>
+            <td><a href="https://www.linkedin.com/in/ohowell123/" target="_blank">LinkedIn</a></td>
+        </tr>
+    </table>
+
+    <div class="btc-section">
+    <img src="Bitcoin.svg.png" alt="Bitcoin Logo" style="max-width: 20px;">
+    <li style="list-style-type: none;">BTC Address: xxxxxxxxxxxxxxxxxxxxxxxxxxxxx </li>
+    </div>
+
+    <canvas id="vectorField"></canvas>
+
+    <div class="content">
+        <img src="Photo.jpeg" alt="Your Picture" style="max-width: 150px;">
+        <h1 style="font-size: 24px;" >Hello! My name is Owen, I am fascinated with deep learning. </h1>
+
+        <div class="publications" id="publications">
+            <h2>Publications:</h2>
+            <ul>
+
+
+<a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/93b3d975f9a2448964a906199db98a9d-Abstract-Conference.html" target="_blank">Equivariant single view pose prediction via induced and restriction representations</a><br>
+Authors: O Howell, D Klee, O Biza, L Zhao, R Walters<br>
+Conference: Advances in Neural Information Processing Systems 36, 2024<br><br>
+
+<a href="https://haojhuang.github.io/fourtran_page/" target="_blank">Fourier transporter: Bi-equivariant robotic manipulation in 3D</a><br>
+Authors: H Huang, O Howell, D Wang, X Zhu, R Walters, R Platt<br>
+Conference: ICLR 2024<br><br>
+
+
+<a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.122.010602" target="_blank">Asymptotic prethermalization in periodically driven classical spin chains</a><br>
+Authors: O Howell, P Weinberg, D Sels, A Polkovnikov, M Bukov<br>
+Journal: Physical Review Letters, 2019<br><br>
+
+
+<a href="https://iopscience.iop.org/article/10.1088/1751-8121/ab956e/meta" target="_blank">Machine learning as ecology</a><br>
+Authors: O Howell, C Wenping, R Marsland, P Mehta<br>
+Journal: Journal of Physics A: Mathematical and Theoretical, 2020<br><br>
+
+
+<a href="https://www.pnas.org/content/118/1/e2011709118" target="_blank">Tregs self-organize into a computing ecosystem and implement a sophisticated optimization algorithm for mediating immune response</a><br>
+Authors: R Marsland III, O Howell, A Mayer, P Mehta<br>
+Journal: Proceedings of the National Academy of Sciences, 2021<br><br>
+
+</ul>
+
+
+<h2>Preprints:</h2>
+<ul>
+<a href="https://arxiv.org/abs/2406.13961" target="_blank">Equivariant Offline Reinforcement Learning</a><br>
+Authors: A Tangri, O Biza, D Wang, D Klee, O Howell, P Robert<br>
+Preprint: arXiv, 2024<br><br>
+
+<a href="https://arxiv.org/abs/2405.01727" target="_blank">k-Fold Gaussian Random Matrix Ensembles I: Forcing Structure into Random Matrices</a><br>
+Authors: M Brodskiy, OL Howell<br>
+Preprint: arXiv, 2024<br><br>
+
+<a href="https://arxiv.org/abs/2311.16544" target="_blank">Multi-Irreducible Spectral Synchronization for Robust Rotation Averaging</a><br>
+Authors: O Howell, H Huang, D Rosen<br>
+Preprint: arXiv, 2023<br><br>
+</ul>
+
+
+
+<h2>Talks:</h2>
+ <ul>
+<li style="list-style-type: none;"><a href="https://www.youtube.com/watch?v=cNdU0BSmRq4" target="_blank">Multi-Irreducible Spectral Synchronization for Robust Rotation Averaging, NECV 2023, Dartmouth University, Hanover, NH</a></li>
+</ul>
+
+        </div>
+
+        <div class="favorite-books">
+            <button onclick="toggleBooks()">Favorite Books</button>
+            <button onclick="toggleFootprints()">Footprints</button>
+            <button onclick="toggleNotes()">Notes</button>
+            <button onclick="toggleTrajectory()">My Trajectory</button>
+            <ul class="favorite-books-list" id="booksList">
+                <li>TODO</li>
+            </ul>
+
+        <ul class="footprints-gallery" id="footprintsGallery" style="display: none; list-style-type: none; padding: 0; margin: 0; gap: 10px;">
+    <li><img src="nyc.png" alt="Photo 1" style="max-width: 200px;"/></li>
+    <li><img src="shack.png" alt="Photo 2" style="max-width: 200px;"/></li>
+    <li><img src="NOLA.png" alt="Photo 3" style="max-width: 200px;"/></li>
+</ul>
+
+
+            <ul class="notes-list" id="notesList">
+            <li> I occasionally write down some of my thoughts. These notes are intended more for me than anyone else. That being said, if you think something is unclear or incorrect, or are intrested in speaking, please drop me a line at howell.o@northeastern.edu.  </li>
+            <li> <a href="On_Representations_of_Compact_Groups.pdf" target="_blank">Notes on Representation Theory of Compact Groups </a> </li>
+            </ul>
+
+            <ul class="trajectory-content" id="trajectoryContent" style="display: none;">
+            <li>My journey from undergraduate to researcher.</li>
+            <li>Highlights of academic milestones.</li>
+            <li>Future aspirations in deep learning and representation theory.</li>
+            </ul>
+
+
+
+        </div>
+
+
+
+        <button id="backToPublications" style="display:none;" onclick="showPublications()">Back to Publications</button>
+    </div>
+
+
+
+    <script>
+        const canvas = document.getElementById('vectorField');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+    canvas.width = document.documentElement.scrollWidth; // Full page width
+    canvas.height = document.documentElement.scrollHeight; // Full page height
+    }
+
+       // Resize the canvas initially and whenever the window resizes
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+
+
+
+    const particles = [];
+
+    function createParticles() {
+    particles.length = 0; // Clear existing particles
+    const particleCount = Math.max(100, Math.ceil((canvas.width * canvas.height) / 50000)); // Dynamic count
+    for (let i = 0; i < particleCount; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: Math.random() * 2 - 1,
+            vy: Math.random() * 2 - 1,
+            size: Math.random() * 2 + 1
+        });
+    }
+}
+
+
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = '#007BFF';
+                ctx.fill();
+                ctx.closePath();
+
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+            });
+        }
+
+        function interactParticles(mouseX, mouseY) {
+            particles.forEach(p => {
+                const dx = p.x - mouseX;
+                const dy = p.y - mouseY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 150) {
+                    const angle = Math.atan2(dy, dx);
+                    const force = (150 - dist) / 150;
+                    p.vx += Math.cos(angle) * force * 2;
+                    p.vy += Math.sin(angle) * force * 2;
+                }
+            });
+        }
+
+        function toggleTrajectory() {
+    const trajectoryContent = document.getElementById('trajectoryContent');
+    const publications = document.getElementById('publications');
+    const booksList = document.getElementById('booksList');
+    const footprintsGallery = document.getElementById('footprintsGallery');
+    const notesList = document.getElementById('notesList');
+    const backButton = document.getElementById('backToPublications');
+
+    const isTrajectoryVisible = trajectoryContent.style.display === 'block';
+
+    trajectoryContent.style.display = isTrajectoryVisible ? 'none' : 'block';
+    publications.style.display = 'none';
+    booksList.style.display = 'none';
+    footprintsGallery.style.display = 'none';
+    notesList.style.display = 'none';
+    backButton.style.display = isTrajectoryVisible ? 'none' : 'block';
+}
+
+      
+
+        function toggleBooks() {
+            const booksList = document.getElementById('booksList');
+            const publications = document.getElementById('publications');
+            const footprintsGallery = document.getElementById('footprintsGallery');
+            const notesList = document.getElementById('notesList');
+            const backButton = document.getElementById('backToPublications');
+
+            const isBooksVisible = booksList.style.display === 'block';
+
+            booksList.style.display = isBooksVisible ? 'none' : 'block';
+            publications.style.display = 'none';
+            footprintsGallery.style.display = 'none';
+            notesList.style.display = 'none';
+            backButton.style.display = isBooksVisible ? 'none' : 'block';
+        }
+
+        function toggleFootprints() {
+    const footprintsGallery = document.getElementById('footprintsGallery');
+    const publications = document.getElementById('publications');
+    const booksList = document.getElementById('booksList');
+    const notesList = document.getElementById('notesList');
+    const backButton = document.getElementById('backToPublications');
+
+    // Check if the footprints gallery is currently visible
+    const isFootprintsVisible = footprintsGallery.style.display === 'flex';
+
+    // Toggle the display of the footprints gallery
+    footprintsGallery.style.display = isFootprintsVisible ? 'none' : 'flex';
+
+    // Hide other sections
+    publications.style.display = 'none';
+    booksList.style.display = 'none';
+    notesList.style.display = 'none';
+
+    // Toggle the back button visibility
+    backButton.style.display = isFootprintsVisible ? 'none' : 'block';
+}
+
+
+
+        function toggleNotes() {
+            const notesList = document.getElementById('notesList');
+            const publications = document.getElementById('publications');
+            const booksList = document.getElementById('booksList');
+            const footprintsGallery = document.getElementById('footprintsGallery');
+            const backButton = document.getElementById('backToPublications');
+
+            const isNotesVisible = notesList.style.display === 'block';
+
+            notesList.style.display = isNotesVisible ? 'none' : 'block';
+            publications.style.display = 'none';
+            booksList.style.display = 'none';
+            footprintsGallery.style.display = 'none';
+            backButton.style.display = isNotesVisible ? 'none' : 'block';
+        }
+
+        function showPublications() {
+    const publications = document.getElementById('publications');
+    const booksList = document.getElementById('booksList');
+    const footprintsGallery = document.getElementById('footprintsGallery');
+    const notesList = document.getElementById('notesList');
+    const trajectoryContent = document.getElementById('trajectoryContent');
+    const backButton = document.getElementById('backToPublications');
+
+    publications.style.display = 'block';
+    booksList.style.display = 'none';
+    footprintsGallery.style.display = 'none';
+    notesList.style.display = 'none';
+    trajectoryContent.style.display = 'none';
+    backButton.style.display = 'none';
+}
+
+
+
+                  // Account for mouse movement in relation to the scroll position
+        document.addEventListener('mousemove', (event) => {
+            const mouseX = event.clientX + window.scrollX; // Include horizontal scroll
+            const mouseY = event.clientY + window.scrollY; // Include vertical scroll
+            interactParticles(mouseX, mouseY);
+        });
+
+        createParticles();
+        setInterval(drawParticles, 16);
+    </script>
+</body>
+</html>
