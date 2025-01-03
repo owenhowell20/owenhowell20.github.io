@@ -134,14 +134,57 @@
 
     <canvas id="vectorField"></canvas>
 
+
+
     <div class="content">
-        <img src="Photo.jpeg" alt="Your Picture" style="max-width: 150px;">
+        <img src="Photo.jpeg" alt="Picture" style="max-width: 150px;">
         <h1 style="font-size: 24px;" >Hello! My name is Owen, I am fascinated with deep learning. </h1>
 
-        <div class="publications" id="publications">
-            <h2>Publications:</h2>
-            <ul>
+<div class="favorite-books">
+            <button onclick="toggleBooks()">Favorite Books</button>
+            <button onclick="toggleFootprints()">Footprints</button>
+            <button onclick="toggleNotes()">Notes</button>
+            <button onclick="toggleTrajectory()">My Trajectory</button>
+            <ul class="favorite-books-list" id="booksList">
+                <li>TODO</li>
+            </ul>
 
+        <ul class="footprints-gallery" id="footprintsGallery" style="display: none; list-style-type: none; padding: 0; margin: 0; gap: 10px;">
+    <li><img src="nyc.png" alt="Photo 1" style="max-width: 200px;"/></li>
+    <li><img src="shack.png" alt="Photo 2" style="max-width: 200px;"/></li>
+    <li><img src="NOLA.png" alt="Photo 3" style="max-width: 200px;"/></li>
+</ul>
+
+
+            <ul class="notes-list" id="notesList">
+            <li> I occasionally write down some of my thoughts. These notes are intended more for me than anyone else. That being said, if you think something is unclear or incorrect, or are intrested in speaking, please drop me a line at howell.o@northeastern.edu.  </li>
+            <li> <a href="On_Representations_of_Compact_Groups.pdf" target="_blank">Notes on Representation Theory of Compact Groups </a> </li>
+            </ul>
+
+            <ul class="trajectory-content" id="trajectoryContent" style="display: none;">
+            <li>Future aspirations in deep learning and representation theory.</li>
+            </ul>
+
+
+
+        </div>
+
+
+
+        <button id="backToPublications" style="display:none;" onclick="showPublications()">Back to Publications</button>
+    </div>
+
+
+
+<div class="publications" id="publications">
+
+<h2>Talks:</h2>
+<ul>
+<li style="list-style-type: none;"><a href="https://www.youtube.com/watch?v=cNdU0BSmRq4" target="_blank">Multi-Irreducible Spectral Synchronization for Robust Rotation Averaging, NECV 2023, Dartmouth University, Hanover, NH</a></li>
+</ul>
+    
+<h2>Publications:</h2>
+<ul>
 
 <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/93b3d975f9a2448964a906199db98a9d-Abstract-Conference.html" target="_blank">Equivariant single view pose prediction via induced and restriction representations</a><br>
 Authors: O Howell, D Klee, O Biza, L Zhao, R Walters<br>
@@ -190,46 +233,11 @@ Preprint: arXiv, 2023<br><br>
 
 
 
-<h2>Talks:</h2>
- <ul>
-<li style="list-style-type: none;"><a href="https://www.youtube.com/watch?v=cNdU0BSmRq4" target="_blank">Multi-Irreducible Spectral Synchronization for Robust Rotation Averaging, NECV 2023, Dartmouth University, Hanover, NH</a></li>
-</ul>
-
-        </div>
-
-        <div class="favorite-books">
-            <button onclick="toggleBooks()">Favorite Books</button>
-            <button onclick="toggleFootprints()">Footprints</button>
-            <button onclick="toggleNotes()">Notes</button>
-            <button onclick="toggleTrajectory()">My Trajectory</button>
-            <ul class="favorite-books-list" id="booksList">
-                <li>TODO</li>
-            </ul>
-
-        <ul class="footprints-gallery" id="footprintsGallery" style="display: none; list-style-type: none; padding: 0; margin: 0; gap: 10px;">
-    <li><img src="nyc.png" alt="Photo 1" style="max-width: 200px;"/></li>
-    <li><img src="shack.png" alt="Photo 2" style="max-width: 200px;"/></li>
-    <li><img src="NOLA.png" alt="Photo 3" style="max-width: 200px;"/></li>
-</ul>
 
 
-            <ul class="notes-list" id="notesList">
-            <li> I occasionally write down some of my thoughts. These notes are intended more for me than anyone else. That being said, if you think something is unclear or incorrect, or are intrested in speaking, please drop me a line at howell.o@northeastern.edu.  </li>
-            <li> <a href="On_Representations_of_Compact_Groups.pdf" target="_blank">Notes on Representation Theory of Compact Groups </a> </li>
-            </ul>
+</div>
 
-            <ul class="trajectory-content" id="trajectoryContent" style="display: none;">
-            <li>Future aspirations in deep learning and representation theory.</li>
-            </ul>
-
-
-
-        </div>
-
-
-
-        <button id="backToPublications" style="display:none;" onclick="showPublications()">Back to Publications</button>
-    </div>
+        
 
 
 
