@@ -127,19 +127,31 @@
         </tr>
     </table>
 
-    <div class="btc-section">
-    <img src="Bitcoin.svg.png" alt="Bitcoin Logo" style="max-width: 20px;">
-    <li style="list-style-type: none;">BTC Address: xxxxxxxxxxxxxxxxxxxxxxxxxxxxx </li>
-    </div>
 
     <canvas id="vectorField"></canvas>
 
 
 
     <div class="content">
-        <img src="Photo.jpeg" alt="Picture" style="max-width: 150px;">
-        <h1 style="font-size: 24px;" >Hello! My name is Owen, I am fascinated with deep learning. </h1>
+    <div style="display: flex; align-items: flex-start;">
+    <img src="Photo.jpeg" alt="Picture" style="max-width: 150px; max-height: 150px; margin-right: 20px;">
+    <div style="border: 1px solid #ccc; padding: 15px; border-radius: 5px; margin-top: 3px; max-height: 150px; " >
+        <h2 style="font-size: 20px;">About Me</h2>
+        <h1 style="font-size: 24px;">Hello! My name is Owen, I am interested in deep learning. My background is in theoretical condensed matter physics. Outside of science, I enjoy athletics and learning new languages.</h1>
+    </div>
+    
 
+
+
+
+
+
+
+    </div>
+
+
+
+    
 <div class="favorite-books">
             <button onclick="toggleBooks()">Favorite Books</button>
             <button onclick="toggleFootprints()">Footprints</button>
@@ -149,14 +161,20 @@
                 <li>TODO</li>
             </ul>
 
-        <ul class="footprints-gallery" id="footprintsGallery" style="display: none; list-style-type: none; padding: 0; margin: 0; gap: 10px;">
+    <ul class="footprints-gallery" id="footprintsGallery" style="display: none; list-style-type: none; padding: 0; margin: 0; gap: 10px;">
     <li><img src="nyc.png" alt="Photo 1" style="max-width: 200px;"/></li>
     <li><img src="shack.png" alt="Photo 2" style="max-width: 200px;"/></li>
     <li><img src="NOLA.png" alt="Photo 3" style="max-width: 200px;"/></li>
+
+    <div class="btc-section">
+    <img src="Bitcoin.svg.png" alt="Bitcoin Logo" style="max-width: 20px;">
+    <li style="list-style-type: none;">BTC Address: xxxxxxxxxxxxxxxxxxxxxxxxxxx </li>
+    </div>
+
 </ul>
 
 
-            <ul class="notes-list" id="notesList">
+            <ul class="notes-list" id="notesList" style="display: none; list-style-type: none; padding: 0; margin: 0; gap: 10px;">
             <li> I occasionally write down some of my thoughts. These notes are intended more for me than anyone else. That being said, if you think something is unclear or incorrect, or are intrested in speaking, please drop me a line at howell.o@northeastern.edu.  </li>
             <li> <a href="On_Representations_of_Compact_Groups.pdf" target="_blank">Notes on Representation Theory of Compact Groups </a> </li>
             <li> <a href="RFC_Duals.pdf" target="_blank"> On Dual Groups of Ribbon Fusion Categories </a> </li>
@@ -177,7 +195,7 @@
 
 
 
-<div class="publications" id="publications">
+<div class="publications" id="publications" style="margin-top: -90px;">
 
 <h2>Talks:</h2>
 <ul>
@@ -337,12 +355,15 @@ Preprint: arXiv, 2023<br><br>
             const backButton = document.getElementById('backToPublications');
 
             const isBooksVisible = booksList.style.display === 'block';
+            const isTrajectoryVisible = trajectoryContent.style.display === 'block';
+
 
             booksList.style.display = isBooksVisible ? 'none' : 'block';
             publications.style.display = 'none';
             footprintsGallery.style.display = 'none';
             notesList.style.display = 'none';
             backButton.style.display = isBooksVisible ? 'none' : 'block';
+            trajectoryContent.style.display = 'none'
         }
 
         function toggleFootprints() {
@@ -351,6 +372,7 @@ Preprint: arXiv, 2023<br><br>
     const booksList = document.getElementById('booksList');
     const notesList = document.getElementById('notesList');
     const backButton = document.getElementById('backToPublications');
+
 
     // Check if the footprints gallery is currently visible
     const isFootprintsVisible = footprintsGallery.style.display === 'flex';
@@ -362,6 +384,9 @@ Preprint: arXiv, 2023<br><br>
     publications.style.display = 'none';
     booksList.style.display = 'none';
     notesList.style.display = 'none';
+    trajectoryContent.style.display = 'none'
+
+
 
     // Toggle the back button visibility
     backButton.style.display = isFootprintsVisible ? 'none' : 'block';
@@ -383,15 +408,18 @@ Preprint: arXiv, 2023<br><br>
             booksList.style.display = 'none';
             footprintsGallery.style.display = 'none';
             backButton.style.display = isNotesVisible ? 'none' : 'block';
+            trajectoryContent.style.display = 'none'
+
         }
 
-        function showPublications() {
+    function showPublications() {
     const publications = document.getElementById('publications');
     const booksList = document.getElementById('booksList');
     const footprintsGallery = document.getElementById('footprintsGallery');
     const notesList = document.getElementById('notesList');
     const trajectoryContent = document.getElementById('trajectoryContent');
     const backButton = document.getElementById('backToPublications');
+
 
     publications.style.display = 'block';
     booksList.style.display = 'none';
