@@ -224,11 +224,13 @@
 
 
 
-<div class="publications" id="publications" style="margin-top: -90px;">
+<div class="publications" id="publications" style="margin-top: -30px;">
 
 <h2>Talks:</h2>
 <ul>
-<li style="list-style-type: none;"><a href="https://www.youtube.com/watch?v=cNdU0BSmRq4" target="_blank">Multi-Irreducible Spectral Synchronization for Robust Rotation Averaging, NECV 2023, Dartmouth University, Hanover, NH</a></li>
+    <a href="https://www.youtube.com/watch?v=cNdU0BSmRq4" target="_blank">
+        Multi-Irreducible Spectral Synchronization for Robust Rotation Averaging, NECV 2023, Dartmouth University, Hanover, NH
+    </a>
 </ul>
     
 <h2>Publications:</h2>
@@ -480,6 +482,12 @@ Preprint: arXiv, 2024<br><br>
 
         createParticles();
         setInterval(drawParticles, 16);
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevents interference from other event handlers
+            });
+        });
     </script>
 </body>
 </html>
