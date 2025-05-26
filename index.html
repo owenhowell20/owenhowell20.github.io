@@ -25,9 +25,11 @@
 
         .content {
             position: relative;
-            text-align: center;
+            text-align: left;
             padding: 50px;
             z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .content img {
@@ -39,10 +41,12 @@
         .content h1 {
             color: #333;
             margin-top: 20px;
+            text-align: left;
         }
 
         .publications, .talks, .favorite-books, .footprints, .notes {
             margin-top: 20px;
+            text-align: left;
         }
 
         .favorite-books-list, .footprints-gallery, .notes-list {
@@ -50,19 +54,23 @@
             list-style-type: none;
             padding: 0;
             margin-top: 10px;
+            text-align: left;
         }
 
         .favorite-books-list li, .footprints-gallery li, .notes-list li {
             margin: 5px 0;
+            text-align: left;
         }
 
         .trajectory-content {
             list-style-type: none;
             padding: 0;
             margin: 10px 0;
+            text-align: left;
         }
         .trajectory-content li {
             margin: 5px 0;
+            text-align: left;
         }
 
 
@@ -103,7 +111,7 @@
         }
 
         .btc-section {
-            text-align: center;
+            text-align: left;
             margin-top: 50px;
         }
 
@@ -115,6 +123,88 @@
         .btc-section p {
             font-size: 16px;
             color: #333;
+        }
+
+        /* Citation Modal Styles */
+        .citation-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .citation-modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+
+        .citation-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .citation-close:hover {
+            color: black;
+        }
+
+        .cite-button {
+            padding: 3px 8px;
+            font-size: 12px;
+            margin-left: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .cite-button:hover {
+            background-color: #45a049;
+        }
+
+        .copy-button {
+            padding: 5px 10px;
+            font-size: 14px;
+            margin-top: 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .copy-button:hover {
+            background-color: #0b7dda;
+        }
+
+        .bibtex-content {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 3px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin: 10px 0;
+        }
+
+        .publications h2, .talks h2, .favorite-books h2 {
+            text-decoration: underline;
+            margin-bottom: 15px;
+        }
+
+        .publications ul li, .talks ul li, .preprints ul li {
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -134,7 +224,10 @@
 
     <div class="content">
     <div style="display: flex; align-items: flex-start;">
-    <img src="photo.jpeg" alt="Picture" style="max-width: 150px; max-height: 150px; margin-right: 20px;">
+    <div style="display: flex; flex-direction: column; align-items: center; margin-right: 20px;">
+        <img src="photo.jpg" alt="Picture" style="max-width: 250px; max-height: 250px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+        <p style="margin-top: 10px; font-style: italic; color: #666;">Tuscany, Italy, 2019</p>
+    </div>
     <div style="border: 1px solid #ccc; padding: 15px; border-radius: 5px; margin-top: 3px; max-height: 150px; " >
         <h2 style="font-size: 20px;">About Me</h2>
         <h1 style="font-size: 24px;">Hello! My name is Owen, I am interested in deep learning. My background is in theoretical condensed matter physics. Outside of science, I enjoy athletics and learning new languages.</h1>
@@ -159,17 +252,17 @@
 <button onclick="toggleTrajectory()">My Trajectory</button>
 <ul class="favorite-books-list" id="booksList">
 <body>
-    <h1>Neural Simulation</h1>
+    <h1 style="text-decoration: underline;">Neural Simulation</h1>
     <p>
     At the turn of the century, most of the laws of physics that govern the natural world had been established. 
     However, our ability to simulate the full complexity of these physical systems has remained elusive. Neural Network based simulation methods have the potential for fast simulation of physics of complex systems. The ability to simulate large, complex environments requires two key components:</p>
     <ul>
         <li>Neural scene representations</li>
-        <li>Effecient generative training and inference</li>
+        <li>Efficient generative training and inference</li>
     </ul>
     <p><strong>"Holy Grail":</strong> The ability to simulate a single human cell at ~2Å resolution </p>
 
-    <h1>Neural Reasoning</h1>
+    <h1 style="text-decoration: underline;">Neural Reasoning</h1>
     <p>
         Deep learning methods can now solve IMO/Putnam problems with considerable accuracy. 
         Computer-assisted proofs are an integral part of the mathematician's toolbox. 
@@ -179,7 +272,7 @@
         Can problems in pure mathematics and theoretical physics be solved completely using neural reasoning 
         methods with no human 'hints'? I strongly suspect the answer is yes. Initially, machine learning methods 
         will require significant inductive bias to solve difficult problems. However, as both algorithms and 
-        methods scale up, it may be possible to train a single model that can solve problems that have confounded 
+        methods scale up, it may be possible to train a single model that can solve pr oblems that have confounded 
         humans since the dawn of history (e.g., the distribution of prime numbers) completely from scratch.
     </p>
     <p><strong>"Holy Grail":</strong> A human-verifiable proof of the Riemann Hypothesis, generated via a neural network.</p>
@@ -187,20 +280,28 @@
 </ul>
 
 <ul class="footprints-gallery" id="footprintsGallery" style="display: none; list-style-type: none; padding: 0; margin: 0; gap: 10px;">
-<li><img src="nyc.png" alt="Photo 1" style="max-width: 200px;"/></li>
-<li><img src="shack.png" alt="Photo 2" style="max-width: 200px;"/></li>
-<li><img src="NOLA.png" alt="Photo 3" style="max-width: 200px;"/></li>
-
-<div class="btc-section">
-<img src="Bitcoin.svg.png" alt="Bitcoin Logo" style="max-width: 20px;">
-<li style="list-style-type: none;">BTC Address: xxxxxxxxxxxxxxxxxxxxxxxxxxx </li>
-</div>
-
+<li>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="nyc.png" alt="Photo 1" style="max-width: 200px;"/>
+        <p style="margin-top: 5px; font-style: italic; color: #666; font-size: 9px; line-height: 1.2;">NYC with good friend and collaborator <a href="https://lfzhao.com" target="_blank" style="color: #666; text-decoration: underline;">Linfeng Zhao</a></p>
+    </div>
+</li>
+<li>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="shack.png" alt="Photo 2" style="max-width: 200px;"/>
+        <p style="margin-top: 5px; font-style: italic; color: #666; font-size: 10px; line-height: 1.2;">In front of shack, central PA</p>
+    </div>
+</li>
+<li>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="NOLA.png" alt="Photo 3" style="max-width: 200px;"/>
+        <p style="margin-top: 5px; font-style: italic; color: #666; font-size: 10px; line-height: 1.2;">New Orleans for NeurIPS 2023 with good<br>friends and collaborators <a href="https://www.dianwang.io" target="_blank" style="color: #666; text-decoration: underline;">Dian Wang</a> and <a href="https://jypark0.github.io" target="_blank" style="color: #666; text-decoration: underline;">John Park</a></p>
+    </div>
+</li>
 </ul>
 
-
             <ul class="notes-list" id="notesList" style="display: none; list-style-type: none; padding: 0; margin: 0; gap: 10px;">
-            <li> I occasionally write down some of my thoughts. These notes are intended more for me than anyone else. That being said, if you think something is unclear or incorrect, or are intrested in speaking, please drop me a line at howell.o@northeastern.edu.  </li>
+            <li> I occasionally write down some of my thoughts. These notes are intended more for me than anyone else. That being said, if you think something is unclear or incorrect, or are interested in speaking, please drop me a line at howell.o@northeastern.edu.  </li>
             <li> <a href="On_Representations_of_Compact_Groups.pdf" target="_blank">Notes on Representation Theory of Compact Groups </a> </li>
             <li> <a href="RFC_Duals.pdf" target="_blank"> On Dual Groups of Ribbon Fusion Categories </a> </li>
             <li> <a href="RandomTensors.pdf" target="_blank"> Concentration Inequalities and Tensor Networks </a> </li>
@@ -209,7 +310,7 @@
            <ul class="trajectory-content" id="trajectoryContent" style="display: none;">
             <li>Education: <a href="https://www.bu.edu" target="_blank">BU</a>, <a href="https://www.uchicago.edu" target="_blank">University of Chicago</a>, <a href="https://www.northeastern.edu" target="_blank">NEU</a></li>
             <li>Professional Experience: <a href="https://www.mpib-berlin.mpg.de" target="_blank">Max Planck Institute</a>, <a href="https://www.iambic.ai" target="_blank">Iambic</a>, <a href="https://rai-inst.com" target="_blank">Boston Dynamics AI Institute</a></li>
-            <li>Research Summary: I am intrested in deep learning, specifically applied to problems in physical science.</li>
+            <li>Research Summary: I am interested in deep learning, specifically applied to problems in physical science.</li>
             <li>Special Thanks: I would like to express my sincere gratitude to the National Science Foundation (and the U.S. taxpayer) for generous financial support.</li>
             </ul>
 
@@ -226,80 +327,93 @@
 
 <div class="publications" id="publications" style="margin-top: -30px;">
 
-<h2> Software: </h2>
+<h2 style="text-decoration: underline;">Apps:</h2>
 
 <ul>
 <a href="https://citegeist.vercel.app/login" target="_blank">
 Citegeist (Coming soon!):
 </a>
 <br>
-Ever feel like your groundbreaking research is being unfairly ignored? Not anymore! 
-<br>Use Citegeist to automatically let the academic world know about your research!<br>
+Use Citegeist to automatically let the academic world know about your research! <br>
 </ul>
 
 
 
-<h2>Talks:</h2>
+<h2 style="text-decoration: underline;">Talks:</h2>
 <ul>
     <a href="https://www.youtube.com/watch?v=cNdU0BSmRq4" target="_blank">
         Multi-Irreducible Spectral Synchronization for Robust Rotation Averaging, NECV 2023, Dartmouth University, Hanover, NH
     </a>
 </ul>
     
-<h2>Publications:</h2>
+<h2 style="text-decoration: underline;">Publications:</h2>
 <ul>
 
-<a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/93b3d975f9a2448964a906199db98a9d-Abstract-Conference.html" target="_blank">Equivariant single view pose prediction via induced and restriction representations</a><br>
+<a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/93b3d975f9a2448964a906199db98a9d-Abstract-Conference.html" target="_blank">Equivariant single view pose prediction via induced and restriction representations</a>
+<button class="cite-button" onclick="openCitationModal('neurips2023')">Cite</button><br>
 Authors: O Howell, D Klee, O Biza, L Zhao, R Walters<br>
 Conference: Advances in Neural Information Processing Systems 36, 2024<br><br>
 
-<a href="https://haojhuang.github.io/fourtran_page/" target="_blank">Fourier transporter: Bi-equivariant robotic manipulation in 3D</a><br>
+<a href="https://haojhuang.github.io/fourtran_page/" target="_blank">Fourier transporter: Bi-equivariant robotic manipulation in 3D</a>
+<button class="cite-button" onclick="openCitationModal('iclr2024')">Cite</button><br>
 Authors: H Huang, O Howell, D Wang, X Zhu, R Walters, R Platt<br>
 Conference: ICLR 2024<br><br>
 
-<a href="https://www.arxiv.org/abs/2412.12237" target="_blank">Equivariant Action Sampling for Reinforcement Learning and Planning
-</a><br>
+<a href="https://www.arxiv.org/abs/2412.12237" target="_blank">Equivariant Action Sampling for Reinforcement Learning and Planning</a>
+<button class="cite-button" onclick="openCitationModal('wafr2024')">Cite</button><br>
 Authors: L Zhao, O Howell, X Zhu, J Yeon Park, Z Zhang, R Walters,  L.S. Wong<br>
 Conference: WAFR 2024<br><br>
 
-<a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.122.010602" target="_blank">Asymptotic prethermalization in periodically driven classical spin chains</a><br>
+<a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.122.010602" target="_blank">Asymptotic prethermalization in periodically driven classical spin chains</a>
+<button class="cite-button" onclick="openCitationModal('prl2019')">Cite</button><br>
 Authors: O Howell, P Weinberg, D Sels, A Polkovnikov, M Bukov<br>
 Journal: Physical Review Letters, 2019<br><br>
 
+<a href="https://arxiv.org/abs/2502.05728" target="_blank">Hierarchical Equivariant Policy via Frame Transfer</a>
+<button class="cite-button" onclick="openCitationModal('icml2025')">Cite</button><br>
+Authors: Haibo Zhao, Dian Wang, Yizhe Zhu, Xupeng Zhu, Owen Howell, Linfeng Zhao, Yaoyao Qian, Robin Walters, Robert Platt<br>
+Conference: ICML 2025 <br><br>
 
-<a href="https://iopscience.iop.org/article/10.1088/1751-8121/ab956e/meta" target="_blank">Machine learning as ecology</a><br>
+
+<a href="https://iopscience.iop.org/article/10.1088/1751-8121/ab956e/meta" target="_blank">Machine learning as ecology</a>
+<button class="cite-button" onclick="openCitationModal('jpa2020')">Cite</button><br>
 Authors: O Howell, C Wenping, R Marsland, P Mehta<br>
 Journal: Journal of Physics A: Mathematical and Theoretical, 2020<br><br>
 
 
-<a href="https://www.pnas.org/content/118/1/e2011709118" target="_blank">Tregs self-organize into a computing ecosystem and implement a sophisticated optimization algorithm for mediating immune response</a><br>
+<a href="https://www.pnas.org/content/118/1/e2011709118" target="_blank">Tregs self-organize into a computing ecosystem and implement a sophisticated optimization algorithm for mediating immune response</a>
+<button class="cite-button" onclick="openCitationModal('pnas2021')">Cite</button><br>
 Authors: R Marsland III, O Howell, A Mayer, P Mehta<br>
 Journal: Proceedings of the National Academy of Sciences, 2021<br><br>
 
 </ul>
 
 
-<h2>Preprints:</h2>
+<h2 style="text-decoration: underline;">Preprints:</h2>
 <ul>
 
-<a href="https://arxiv.org/abs/2502.05728" target="_blank">Hierarchical Equivariant Policy via Frame Transfer</a><br>
-Authors: Haibo Zhao, Dian Wang, Yizhe Zhu, Xupeng Zhu, Owen Howell, Linfeng Zhao, Yaoyao Qian, Robin Walters, Robert Platt<br>
+<a href="https://arxiv.org/abs/2504.13241" target="_blank">Recursive Deep Inverse Reinforcement Learning </a>
+<button class="cite-button" onclick="openCitationModal('arxiv2025_rdirl')">Cite</button><br>
+Authors: Paul Ghanem, Michael Potter, Owen Howell, Pau Closas, Alireza Ramezani, Deniz Erdogmus, Tales Imbiriba <br>
 Preprint: arXiv, 2025<br><br>
 
-<a href="https://arxiv.org/abs/2412.10743" target="_blank">NeuralPLexer3: Accurate Biomolecular Complex Structure Prediction with Flow Models</a><br>
+<a href="https://arxiv.org/abs/2412.10743" target="_blank">NeuralPLexer3: Accurate Biomolecular Complex Structure Prediction with Flow Models</a>
+<button class="cite-button" onclick="openCitationModal('arxiv2025_neuralplexer')">Cite</button><br>
 Authors: Zhuoran Qiao, Feizhi Ding, Thomas Dresselhaus, Mia A. Rosenfeld, Xiaotian Han, Owen Howell, Aniketh Iyengar, Stephen Opalenski, Anders S. Christensen, Sai Krishna Sirumalla, Frederick R. Manby, Thomas F. Miller III, Matthew Welborn<br>
 Preprint: arXiv, 2025<br><br>
 
-<a href="https://arxiv.org/abs/2405.01727" target="_blank">k-Fold Gaussian Random Matrix Ensembles I: Forcing Structure into Random Matrices</a><br>
+<a href="https://arxiv.org/abs/2405.01727" target="_blank">k-Fold Gaussian Random Matrix Ensembles I: Forcing Structure into Random Matrices</a>
+<button class="cite-button" onclick="openCitationModal('arxiv2024_kfold')">Cite</button><br>
 Authors: M Brodskiy, OL Howell<br>
 Preprint: arXiv, 2024<br><br>
 
-<a href="https://arxiv.org/abs/2311.16544" target="_blank">Multi-Irreducible Spectral Synchronization for Robust Rotation Averaging</a><br>
+<a href="https://arxiv.org/abs/2311.16544" target="_blank">Multi-Irreducible Spectral Synchronization for Robust Rotation Averaging</a>
+<button class="cite-button" onclick="openCitationModal('arxiv2023_multiirreducible')">Cite</button><br>
 Authors: O Howell, H Huang, D Rosen<br>
 Preprint: arXiv, 2023<br><br>
 
-
-<a href="https://arxiv.org/abs/2406.13961" target="_blank">Equivariant Offline Reinforcement Learning</a><br>
+<a href="https://arxiv.org/abs/2406.13961" target="_blank">Equivariant Offline Reinforcement Learning</a>
+<button class="cite-button" onclick="openCitationModal('arxiv2024_equivariant')">Cite</button><br>
 Authors: A Tangri, O Biza, D Wang, D Klee, O Howell, P Robert<br>
 Preprint: arXiv, 2024<br><br>
 </ul>
@@ -502,5 +616,146 @@ Preprint: arXiv, 2024<br><br>
             });
         });
     </script>
+
+    <!-- Citation Modal -->
+    <div id="citationModal" class="citation-modal">
+        <div class="citation-modal-content">
+            <span class="citation-close" onclick="closeCitationModal()">&times;</span>
+            <h3>BibTeX Citation</h3>
+            <div id="bibtexContent" class="bibtex-content"></div>
+            <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <script>
+        // Citation data object
+        const citations = {
+            'neurips2023': `@inproceedings{howell2023equivariant,
+  title={Equivariant single view pose prediction via induced and restriction representations},
+  author={Howell, Owen and Klee, Daniel and Biza, Ondrej and Zhao, Linfeng and Walters, Robin},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2024}
+}`,
+            'iclr2024': `@inproceedings{huang2024fourier,
+  title={Fourier transporter: Bi-equivariant robotic manipulation in 3D},
+  author={Huang, Hao and Howell, Owen and Wang, Dian and Zhu, Xupeng and Walters, Robin and Platt, Robert},
+  booktitle={International Conference on Learning Representations},
+  year={2024}
+}`,
+            'wafr2024': `@inproceedings{zhao2024equivariant,
+  title={Equivariant Action Sampling for Reinforcement Learning and Planning},
+  author={Zhao, Linfeng and Howell, Owen and Zhu, Xupeng and Park, J Yeon and Zhang, Zhenyu and Walters, Robin and Wong, L.S.},
+  booktitle={Workshop on the Algorithmic Foundations of Robotics},
+  year={2024}
+}`,
+            'prl2019': `@article{howell2019asymptotic,
+  title={Asymptotic prethermalization in periodically driven classical spin chains},
+  author={Howell, Owen and Weinberg, Phillip and Sels, Dries and Polkovnikov, Anatoli and Bukov, Marin},
+  journal={Physical Review Letters},
+  volume={122},
+  number={1},
+  pages={010602},
+  year={2019},
+  publisher={APS}
+}`,
+            'icml2025': `@inproceedings{zhao2025hierarchical,
+  title={Hierarchical Equivariant Policy via Frame Transfer},
+  author={Zhao, Haibo and Wang, Dian and Zhu, Yizhe and Zhu, Xupeng and Howell, Owen and Zhao, Linfeng and Qian, Yaoyao and Walters, Robin and Platt, Robert},
+  booktitle={International Conference on Machine Learning},
+  year={2025}
+}`,
+            'jpa2020': `@article{howell2020machine,
+  title={Machine learning as ecology},
+  author={Howell, Owen and Wenping, Chen and Marsland, Robert and Mehta, Pankaj},
+  journal={Journal of Physics A: Mathematical and Theoretical},
+  year={2020},
+  publisher={IOP Publishing}
+}`,
+            'pnas2021': `@article{marsland2021tregs,
+  title={Tregs self-organize into a computing ecosystem and implement a sophisticated optimization algorithm for mediating immune response},
+  author={Marsland III, Robert and Howell, Owen and Mayer, Aleena and Mehta, Pankaj},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={118},
+  number={1},
+  pages={e2011709118},
+  year={2021},
+  publisher={National Acad Sciences}
+}`,
+            'arxiv2025_rdirl': `@article{ghanem2025recursive,
+  title={Recursive Deep Inverse Reinforcement Learning},
+  author={Ghanem, Paul and Potter, Michael and Howell, Owen and Closas, Pau and Ramezani, Alireza and Erdogmus, Deniz and Imbiriba, Tales},
+  journal={arXiv preprint arXiv:2504.13241},
+  year={2025}
+}`,
+            'arxiv2025_neuralplexer': `@article{qiao2025neuralplexer3,
+  title={NeuralPLexer3: Accurate Biomolecular Complex Structure Prediction with Flow Models},
+  author={Qiao, Zhuoran and Ding, Feizhi and Dresselhaus, Thomas and Rosenfeld, Mia A. and Han, Xiaotian and Howell, Owen and Iyengar, Aniketh and Opalenski, Stephen and Christensen, Anders S. and Sirumalla, Sai Krishna and Manby, Frederick R. and Miller III, Thomas F. and Welborn, Matthew},
+  journal={arXiv preprint arXiv:2412.10743},
+  year={2025}
+}`,
+            'arxiv2024_kfold': `@article{brodskiy2024kfold,
+  title={k-Fold Gaussian Random Matrix Ensembles I: Forcing Structure into Random Matrices},
+  author={Brodskiy, M and Howell, OL},
+  journal={arXiv preprint arXiv:2405.01727},
+  year={2024}
+}`,
+            'arxiv2023_multiirreducible': `@article{howell2023multiirreducible,
+  title={Multi-Irreducible Spectral Synchronization for Robust Rotation Averaging},
+  author={Howell, Owen and Huang, Hao and Rosen, David},
+  journal={arXiv preprint arXiv:2311.16544},
+  year={2023}
+}`,
+            'arxiv2024_equivariant': `@article{tangri2024equivariant,
+  title={Equivariant Offline Reinforcement Learning},
+  author={Tangri, A and Biza, O and Wang, D and Klee, D and Howell, O and Robert, P},
+  journal={arXiv preprint arXiv:2406.13961},
+  year={2024}
+}`
+        };
+
+        // Function to open citation modal
+        function openCitationModal(citationKey) {
+            const modal = document.getElementById('citationModal');
+            const bibtexContent = document.getElementById('bibtexContent');
+            bibtexContent.textContent = citations[citationKey];
+            modal.style.display = 'block';
+        }
+
+        // Function to close citation modal
+        function closeCitationModal() {
+            const modal = document.getElementById('citationModal');
+            modal.style.display = 'none';
+        }
+
+        // Function to copy BibTeX to clipboard
+        function copyToClipboard() {
+            const bibtexContent = document.getElementById('bibtexContent');
+            navigator.clipboard.writeText(bibtexContent.textContent)
+                .then(() => {
+                    const copyButton = document.querySelector('.copy-button');
+                    const originalText = copyButton.textContent;
+                    copyButton.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyButton.textContent = originalText;
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('citationModal');
+            if (event.target == modal) {
+                closeCitationModal();
+            }
+        }
+    </script>
+
+    <div class="btc-section" style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #ccc;">
+        <img src="Bitcoin.svg.png" alt="Bitcoin Logo" style="max-width: 20px; vertical-align: middle;">
+        <span style="margin-left: 10px; font-size: 14px;">BTC Address: xxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+    </div>
 </body>
 </html>
