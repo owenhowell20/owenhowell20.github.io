@@ -174,6 +174,21 @@
             background-color: #45a049;
         }
 
+        .code-button {
+            padding: 3px 8px;
+            font-size: 12px;
+            margin-left: 5px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .code-button:hover {
+            background-color: #0b7dda;
+        }
+
         .copy-button {
             padding: 5px 10px;
             font-size: 14px;
@@ -250,6 +265,7 @@
 <button onclick="toggleFootprints()">Footprints</button>
 <button onclick="toggleNotes()">Notes</button>
 <button onclick="toggleTrajectory()">My Trajectory</button>
+<button onclick="toggleDiversions()">Diversions</button>
 <ul class="favorite-books-list" id="booksList">
 <body>
     <h1 style="text-decoration: underline;">Neural Simulation</h1>
@@ -307,9 +323,14 @@
             <li> <a href="RandomTensors.pdf" target="_blank"> Concentration Inequalities and Tensor Networks </a> </li>
             </ul>
 
-           <ul class="trajectory-content" id="trajectoryContent" style="display: none;">
-            <li>Education: <a href="https://www.bu.edu" target="_blank">BU</a>, <a href="https://www.uchicago.edu" target="_blank">University of Chicago</a>, <a href="https://www.northeastern.edu" target="_blank">NEU</a></li>
-            <li>Professional Experience: <a href="https://www.mpib-berlin.mpg.de" target="_blank">Max Planck Institute</a>, <a href="https://www.iambic.ai" target="_blank">Iambic</a>, <a href="https://rai-inst.com" target="_blank">Boston Dynamics AI Institute</a></li>
+           <div id="diversionsContent" style="display: none;">
+            <h2 style="text-decoration: underline;">Diversions</h2>
+            <p>Coming soon...</p>
+        </div>
+
+        <ul class="trajectory-content" id="trajectoryContent" style="display: none;">
+            <li>Education: <a href="https://www.bu.edu" target="_blank">BU</a> → <a href="https://www.uchicago.edu" target="_blank">University of Chicago</a> → <a href="https://www.northeastern.edu" target="_blank">NEU</a></li>
+            <li>Professional Experience: <a href="https://www.mpib-berlin.mpg.de" target="_blank">Max Planck Institute</a> → <a href="https://www.iambic.ai" target="_blank">Iambic</a> → <a href="https://rai-inst.com" target="_blank">Boston Dynamics AI Institute</a></li>
             <li>Research Summary: I am interested in deep learning, specifically applied to problems in physical science.</li>
             <li>Special Thanks: I would like to express my sincere gratitude to the National Science Foundation (and the U.S. taxpayer) for generous financial support.</li>
             </ul>
@@ -355,7 +376,8 @@ Authors: O Howell, D Klee, O Biza, L Zhao, R Walters<br>
 Conference: Advances in Neural Information Processing Systems 36, 2024<br><br>
 
 <a href="https://haojhuang.github.io/fourtran_page/" target="_blank">Fourier transporter: Bi-equivariant robotic manipulation in 3D</a>
-<button class="cite-button" onclick="openCitationModal('iclr2024')">Cite</button><br>
+<button class="cite-button" onclick="openCitationModal('iclr2024')">Cite</button>
+<button class="code-button" onclick="window.open('https://github.com/owenhowell20/fourtran', '_blank')">Code</button><br>
 Authors: H Huang, O Howell, D Wang, X Zhu, R Walters, R Platt<br>
 Conference: ICLR 2024<br><br>
 
@@ -370,7 +392,8 @@ Authors: O Howell, P Weinberg, D Sels, A Polkovnikov, M Bukov<br>
 Journal: Physical Review Letters, 2019<br><br>
 
 <a href="https://arxiv.org/abs/2502.05728" target="_blank">Hierarchical Equivariant Policy via Frame Transfer</a>
-<button class="cite-button" onclick="openCitationModal('icml2025')">Cite</button><br>
+<button class="cite-button" onclick="openCitationModal('icml2025')">Cite</button>
+<button class="code-button" onclick="window.open('https://github.com/owenhowell20/hierarchical-equivariant-policy', '_blank')">Code</button><br>
 Authors: Haibo Zhao, Dian Wang, Yizhe Zhu, Xupeng Zhu, Owen Howell, Linfeng Zhao, Yaoyao Qian, Robin Walters, Robert Platt<br>
 Conference: ICML 2025 <br><br>
 
@@ -497,108 +520,128 @@ Preprint: arXiv, 2024<br><br>
         }
 
         function toggleTrajectory() {
-    const trajectoryContent = document.getElementById('trajectoryContent');
-    const publications = document.getElementById('publications');
-    const booksList = document.getElementById('booksList');
-    const footprintsGallery = document.getElementById('footprintsGallery');
-    const notesList = document.getElementById('notesList');
-    const backButton = document.getElementById('backToPublications');
+            const trajectoryContent = document.getElementById('trajectoryContent');
+            const publications = document.getElementById('publications');
+            const booksList = document.getElementById('booksList');
+            const footprintsGallery = document.getElementById('footprintsGallery');
+            const notesList = document.getElementById('notesList');
+            const diversionsContent = document.getElementById('diversionsContent');
+            const backButton = document.getElementById('backToPublications');
 
-    const isTrajectoryVisible = trajectoryContent.style.display === 'block';
+            // Hide all other sections
+            publications.style.display = 'none';
+            booksList.style.display = 'none';
+            footprintsGallery.style.display = 'none';
+            notesList.style.display = 'none';
+            diversionsContent.style.display = 'none';
 
-    trajectoryContent.style.display = isTrajectoryVisible ? 'none' : 'block';
-    publications.style.display = 'none';
-    booksList.style.display = 'none';
-    footprintsGallery.style.display = 'none';
-    notesList.style.display = 'none';
-    backButton.style.display = isTrajectoryVisible ? 'none' : 'block';
-}
-
-      
+            // Show trajectory section
+            trajectoryContent.style.display = 'block';
+            backButton.style.display = 'block';
+        }
 
         function toggleBooks() {
             const booksList = document.getElementById('booksList');
             const publications = document.getElementById('publications');
             const footprintsGallery = document.getElementById('footprintsGallery');
             const notesList = document.getElementById('notesList');
+            const trajectoryContent = document.getElementById('trajectoryContent');
+            const diversionsContent = document.getElementById('diversionsContent');
             const backButton = document.getElementById('backToPublications');
 
-            const isBooksVisible = booksList.style.display === 'block';
-            const isTrajectoryVisible = trajectoryContent.style.display === 'block';
-
-
-            booksList.style.display = isBooksVisible ? 'none' : 'block';
+            // Hide all other sections
             publications.style.display = 'none';
             footprintsGallery.style.display = 'none';
             notesList.style.display = 'none';
-            backButton.style.display = isBooksVisible ? 'none' : 'block';
-            trajectoryContent.style.display = 'none'
+            trajectoryContent.style.display = 'none';
+            diversionsContent.style.display = 'none';
+
+            // Toggle books section
+            booksList.style.display = booksList.style.display === 'none' ? 'block' : 'block';
+            backButton.style.display = 'block';
         }
 
         function toggleFootprints() {
-    const footprintsGallery = document.getElementById('footprintsGallery');
-    const publications = document.getElementById('publications');
-    const booksList = document.getElementById('booksList');
-    const notesList = document.getElementById('notesList');
-    const backButton = document.getElementById('backToPublications');
+            const footprintsGallery = document.getElementById('footprintsGallery');
+            const publications = document.getElementById('publications');
+            const booksList = document.getElementById('booksList');
+            const notesList = document.getElementById('notesList');
+            const trajectoryContent = document.getElementById('trajectoryContent');
+            const diversionsContent = document.getElementById('diversionsContent');
+            const backButton = document.getElementById('backToPublications');
 
+            // Hide all other sections
+            publications.style.display = 'none';
+            booksList.style.display = 'none';
+            notesList.style.display = 'none';
+            trajectoryContent.style.display = 'none';
+            diversionsContent.style.display = 'none';
 
-    // Check if the footprints gallery is currently visible
-    const isFootprintsVisible = footprintsGallery.style.display === 'flex';
-
-    // Toggle the display of the footprints gallery
-    footprintsGallery.style.display = isFootprintsVisible ? 'none' : 'flex';
-
-    // Hide other sections
-    publications.style.display = 'none';
-    booksList.style.display = 'none';
-    notesList.style.display = 'none';
-    trajectoryContent.style.display = 'none'
-
-
-
-    // Toggle the back button visibility
-    backButton.style.display = isFootprintsVisible ? 'none' : 'block';
-}
-
-
+            // Toggle footprints section
+            footprintsGallery.style.display = footprintsGallery.style.display === 'none' ? 'flex' : 'flex';
+            backButton.style.display = 'block';
+        }
 
         function toggleNotes() {
             const notesList = document.getElementById('notesList');
             const publications = document.getElementById('publications');
             const booksList = document.getElementById('booksList');
             const footprintsGallery = document.getElementById('footprintsGallery');
+            const trajectoryContent = document.getElementById('trajectoryContent');
+            const diversionsContent = document.getElementById('diversionsContent');
             const backButton = document.getElementById('backToPublications');
 
-            const isNotesVisible = notesList.style.display === 'block';
-
-            notesList.style.display = isNotesVisible ? 'none' : 'block';
+            // Hide all other sections
             publications.style.display = 'none';
             booksList.style.display = 'none';
             footprintsGallery.style.display = 'none';
-            backButton.style.display = isNotesVisible ? 'none' : 'block';
-            trajectoryContent.style.display = 'none'
+            trajectoryContent.style.display = 'none';
+            diversionsContent.style.display = 'none';
 
+            // Toggle notes section
+            notesList.style.display = notesList.style.display === 'none' ? 'block' : 'block';
+            backButton.style.display = 'block';
         }
 
-    function showPublications() {
-    const publications = document.getElementById('publications');
-    const booksList = document.getElementById('booksList');
-    const footprintsGallery = document.getElementById('footprintsGallery');
-    const notesList = document.getElementById('notesList');
-    const trajectoryContent = document.getElementById('trajectoryContent');
-    const backButton = document.getElementById('backToPublications');
+        function toggleDiversions() {
+            const diversionsContent = document.getElementById('diversionsContent');
+            const publications = document.getElementById('publications');
+            const booksList = document.getElementById('booksList');
+            const footprintsGallery = document.getElementById('footprintsGallery');
+            const notesList = document.getElementById('notesList');
+            const trajectoryContent = document.getElementById('trajectoryContent');
+            const backButton = document.getElementById('backToPublications');
 
+            // Hide all other sections
+            publications.style.display = 'none';
+            booksList.style.display = 'none';
+            footprintsGallery.style.display = 'none';
+            notesList.style.display = 'none';
+            trajectoryContent.style.display = 'none';
 
-    publications.style.display = 'block';
-    booksList.style.display = 'none';
-    footprintsGallery.style.display = 'none';
-    notesList.style.display = 'none';
-    trajectoryContent.style.display = 'none';
-    backButton.style.display = 'none';
-}
+            // Toggle diversions section
+            diversionsContent.style.display = diversionsContent.style.display === 'none' ? 'block' : 'block';
+            backButton.style.display = 'block';
+        }
 
+        function showPublications() {
+            const publications = document.getElementById('publications');
+            const booksList = document.getElementById('booksList');
+            const footprintsGallery = document.getElementById('footprintsGallery');
+            const notesList = document.getElementById('notesList');
+            const trajectoryContent = document.getElementById('trajectoryContent');
+            const diversionsContent = document.getElementById('diversionsContent');
+            const backButton = document.getElementById('backToPublications');
 
+            // Show publications and hide all other sections
+            publications.style.display = 'block';
+            booksList.style.display = 'none';
+            footprintsGallery.style.display = 'none';
+            notesList.style.display = 'none';
+            trajectoryContent.style.display = 'none';
+            diversionsContent.style.display = 'none';
+            backButton.style.display = 'none';
+        }
 
                   // Account for mouse movement in relation to the scroll position
         document.addEventListener('mousemove', (event) => {
